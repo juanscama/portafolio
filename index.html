@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juan Sebastián Camacho · Automatización con IA para Ventas y CX</title>
+  <meta name="description" content="Sistemas de automatización e IA en producción para equipos comerciales y de experiencia de cliente.">
+  <meta property="og:title" content="Juan Sebastián Camacho · Automatización con IA">
+  <meta property="og:description" content="Construyo sistemas de IA que corren en producción, no demos.">
+  <meta property="og:image" content="assets/poster.jpg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="hero">
+    <p class="eyebrow">Hola, Alegra 👋</p>
+    <h1>Te cuento en 1 minuto quién soy</h1>
+
+    <div class="phone">
+      <video controls playsinline preload="metadata" poster="assets/poster.jpg">
+        <source src="assets/presentacion.mp4" type="video/mp4">
+        Tu navegador no puede reproducir el video. <a href="assets/presentacion.mp4">Descárgalo aquí</a>.
+      </video>
+    </div>
+
+    <p class="name">Juan Sebastián Camacho Falla</p>
+    <p class="role">Automatización con IA para Ventas y Customer Experience</p>
+    <p class="tagline">Construyo sistemas de IA que corren en producción, no demos.<br>Conecto CRM, mensajería, anuncios y modelos de lenguaje para que el trabajo repetitivo desaparezca y el equipo decida con datos.</p>
+
+    <nav class="actions">
+      <a class="btn primary" href="#proyectos">Ver proyectos</a>
+      <a class="btn" href="https://wa.me/573146228049?text=Hola%20Juan%20Sebasti%C3%A1n%2C%20vi%20tu%20portafolio" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn" href="mailto:juanse.camacho@gmail.com">Correo</a>
+      <a class="btn" href="https://www.linkedin.com/in/sebastiancafal" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="block">
+      <h2>Lo que sé hacer</h2>
+      <div class="skills">
+        <div class="skill">
+          <h3>Automatización en producción</h3>
+          <p>Flujos con n8n, Make, GitHub Actions y servicios propios, con reintentos, colas de fallidos, idempotencia y chequeos de salud.</p>
+        </div>
+        <div class="skill">
+          <h3>Integraciones</h3>
+          <p>APIs REST, webhooks con verificación de firma (HMAC), tokens OAuth de Meta. Meta Marketing API, WhatsApp Cloud API, Instagram, Chatwoot, CRM y ERP.</p>
+        </div>
+        <div class="skill">
+          <h3>IA generativa</h3>
+          <p>Agentes con tool use (Claude), prompts con reglas de negocio, cadenas de modelos con respaldo y evaluación automática con un modelo juez (promptfoo).</p>
+        </div>
+        <div class="skill">
+          <h3>Datos de ventas y CX</h3>
+          <p>Conversaciones de WhatsApp e Instagram, leads, citas y pagos. PostgreSQL, SQL, TypeScript y Python para transformar y validar.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="proyectos">
+      <p class="eyebrow">Proyecto principal · en producción desde junio de 2026</p>
+      <h2>Sistema que une anuncios, conversaciones y ventas</h2>
+      <p class="note">Hecho para una empresa con tres unidades de negocio. Por confidencialidad no muestro nombres, cifras ni capturas: cuento el problema, cómo lo construí y cómo sé que funciona.</p>
+
+      <div class="story">
+        <div class="story-item">
+          <h3>El problema</h3>
+          <p>La información estaba regada entre Meta Ads, el bot de WhatsApp, Chatwoot, un ERP y los cierres manuales de las asesoras. Nadie podía responder qué anuncio traía clientes que sí pagan, cuánto se gastaba por negocio ni cuántos prospectos preguntaban y dejaban de responder.</p>
+        </div>
+
+        <div class="story-item">
+          <h3>Cómo viaja el dato</h3>
+          <div class="flow">
+            <div class="node">Anuncio en Meta<span>trae el ID de origen</span></div>
+            <div class="arrow">→</div>
+            <div class="node">WhatsApp + Chatwoot<span>webhook en tiempo real + respaldo periódico</span></div>
+            <div class="arrow">→</div>
+            <div class="node">Sincronizador<span>GitHub Actions cada 3 h y diario</span></div>
+            <div class="arrow">→</div>
+            <div class="node">PostgreSQL<span>histórico propio, no depende de los límites de las APIs</span></div>
+            <div class="arrow">→</div>
+            <div class="node accent">Dashboard + asistente IA<span>decisiones y remarketing desde el CRM</span></div>
+          </div>
+          <p class="small">El ERP entra por su API oficial con pagos, valoraciones y clientes, en un proceso diario aparte.</p>
+        </div>
+
+        <div class="story-item">
+          <h3>Qué construí</h3>
+          <ul>
+            <li>Conexión con 3 cuentas de Meta Ads: gasto, campañas, conjuntos, anuncios y resultados.</li>
+            <li>Atribución anuncio → conversación → venta, leyendo el anuncio de origen que envía WhatsApp.</li>
+            <li>Dashboard en Next.js con embudo, comparativos por periodo y negocio, seguimiento de clientes recurrentes y valor por campaña.</li>
+            <li>Asistente con Claude dentro del dashboard: el gerente pregunta en lenguaje natural y el agente consulta los datos reales con herramientas (tool use), con prompt caching para controlar el costo.</li>
+            <li>Alertas de saldo de Meta Ads por correo y WhatsApp, para recargar antes de que se pausen las campañas.</li>
+            <li>Segmentos en el CRM para volver a contactar a prospectos que no cerraron.</li>
+          </ul>
+        </div>
+
+        <div class="story-item">
+          <h3>Cómo sé que funciona</h3>
+          <ul>
+            <li>Corre solo desde junio: unos 300 commits y 55 archivos de pruebas automáticas.</li>
+            <li>Cada sincronización verifica la respuesta HTTP y falla en voz alta si algo se rompe. Si una fuente cae, el dashboard sigue funcionando con lo que tiene.</li>
+            <li>Cuando una métrica no cuadraba, la investigué antes de "arreglarla". Así nació el cambio más importante del proyecto (abajo).</li>
+          </ul>
+        </div>
+
+        <div class="story-item highlight">
+          <h3>Lo que no funcionó, y cómo lo corregí</h3>
+          <p>El dashboard mostraba una gran parte de los ingresos como "sin atribuir", y la primera idea fue mejorar el algoritmo que une ventas con anuncios. Al revisar los datos encontré que la mayoría de esos ingresos venía de canales sin ningún anuncio detrás: WhatsApp directo, referidos, clientes que llegaban por su cuenta. Forzar la atribución habría asignado ventas al anuncio equivocado.</p>
+          <p>Decidí no tocar el algoritmo. Separé los ingresos en tres grupos que suman el total y se pueden auditar, y agregué una métrica que no depende de atribuir ventas: <strong>costo por lead por anuncio</strong>. El dashboard pasó a decir la verdad sobre el origen del dinero.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Otros proyectos</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Chat de Instagram con IA y evaluación automática</h3>
+          <p>Responde dudas de tratamientos, precios, sedes y horarios, y deriva al WhatsApp de la sede para agendar. El bot solo habla de lo que está en su prompt, para no inventar precios.</p>
+          <p>Usa una cadena de tres modelos con respaldo. Los prompts se evalúan con promptfoo y un modelo juez que comprueba que el modelo <em>obedece</em> las reglas, no solo que el prompt las tiene. Las primeras corridas encontraron dos bugs que llevaban semanas en producción.</p>
+          <p class="lesson"><strong>Aprendizaje de costo:</strong> las evaluaciones automáticas agotaron el saldo que también pagaba el modelo de respaldo del bot. Las dejé con disparo manual y separé las pruebas gratuitas (locales) de las que gastan.</p>
+          <div class="tags"><span>Instagram API</span><span>Webhooks</span><span>promptfoo</span><span>LLM como juez</span><span>Upstash</span></div>
+        </article>
+
+        <article class="card">
+          <h3>Bot de WhatsApp → CRM con atribución</h3>
+          <p>Registra cada contacto del bot en el CRM sin duplicados y conservando la campaña de Meta que lo originó.</p>
+          <ul>
+            <li>Verificación de firma HMAC SHA-256 de Meta; sin firma válida responde 401.</li>
+            <li>Idempotencia por ID de mensaje y deduplicación por teléfono normalizado (E.164).</li>
+            <li>Reintentos con backoff (1 s, 4 s, 16 s) solo en errores de red y 5xx, cola persistente de fallidos con reproceso y <code>/health</code>.</li>
+            <li>51 pruebas automáticas.</li>
+          </ul>
+          <div class="tags"><span>Node.js</span><span>TypeScript</span><span>WhatsApp Cloud API</span><span>Chatwoot</span></div>
+        </article>
+
+        <article class="card">
+          <h3>Click Agents · agentes de IA de voz y texto</h3>
+          <p>Plataforma SaaS B2B que cofundé para crear agentes que atienden negocios: llamadas telefónicas con voz IA y conversaciones de WhatsApp con Claude. Tiene un cliente real con agente de voz y de texto activos.</p>
+          <p>Backend serverless en Python (FastAPI) con más de 150 endpoints, base de datos y autenticación en Supabase, telefonía con Twilio y migración de voz a LiveKit.</p>
+          <div class="tags"><span>Python</span><span>FastAPI</span><span>Supabase</span><span>Retell</span><span>LiveKit</span><span>Twilio</span><span>ElevenLabs</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Por qué encajo en este rol</h2>
+      <div class="table">
+        <div class="row head"><div>Lo que piden</div><div>Dónde lo he hecho</div></div>
+        <div class="row"><div>Flujos de automatización en producción y cómo mediste que funcionan</div><div>Sistema de anuncios y ventas: 4 meses en producción, sincronización monitoreada, corrección de la métrica de atribución.</div></div>
+        <div class="row"><div>n8n, Make o equivalente con manejo de errores, reintentos y monitoreo</div><div>Bot WhatsApp → CRM con backoff, cola de fallidos y health check. GitHub Actions que fallan si la sincronización no responde 200.</div></div>
+        <div class="row"><div>APIs REST, webhooks y OAuth</div><div>Meta Marketing API, WhatsApp Cloud API, Instagram con tokens OAuth de Meta, Chatwoot, ERP. Webhooks con firma HMAC.</div></div>
+        <div class="row"><div>IA generativa con sistemas, prompts o agentes diseñados y evaluados</div><div>Agente con tool use en el dashboard, chat de Instagram evaluado con un modelo juez, agentes de voz en Click Agents.</div></div>
+        <div class="row"><div>Evaluar con IA las interacciones de ventas y CX, y calibrar contra criterio humano</div><div>Evaluación automática de respuestas del chat contra reglas de negocio; conversaciones de WhatsApp e Instagram como fuente de análisis.</div></div>
+        <div class="row"><div>SQL y Python o JavaScript</div><div>PostgreSQL con Prisma, TypeScript/Node.js y Python.</div></div>
+        <div class="row"><div>Dashboards con Data y RevOps</div><div>Dashboard propio de embudo, ROI, clientes recurrentes y comparativos para la gerencia.</div></div>
+        <div class="row"><div>HubSpot (deseable)</div><div>Todavía no en producción. He integrado Chatwoot, GoHighLevel y CRM/ERP propios por API, y el patrón es el mismo.</div></div>
+      </div>
+    </section>
+
+    <section class="block contact">
+      <h2>Hablemos</h2>
+      <p>Administrador de empresas (Universidad EAN). Bogotá, Colombia · disponible 100% remoto.</p>
+      <nav class="actions">
+        <a class="btn primary" href="https://wa.me/573146228049?text=Hola%20Juan%20Sebasti%C3%A1n%2C%20vi%20tu%20portafolio" target="_blank" rel="noopener">Escríbeme por WhatsApp</a>
+        <a class="btn" href="mailto:juanse.camacho@gmail.com">juanse.camacho@gmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/sebastiancafal" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Página hecha a mano para esta postulación · 2026</p>
+  </footer>
+
+</body>
+</html>
